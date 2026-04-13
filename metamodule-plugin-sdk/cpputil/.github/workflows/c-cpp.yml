@@ -1,0 +1,42 @@
+name: Run unit tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04]
+        cxx: [g++-14, g++-13, g++-12, g++-11, clang++-18, clang++-17, clang++-16, clang++-15 ]
+        include:
+          - os: macos-latest
+            cxx: clang++
+        exclude:
+          - os: ubuntu-22.04
+            cxx: clang++-16
+          - os: ubuntu-22.04
+            cxx: clang++-17
+          - os: ubuntu-22.04
+            cxx: clang++-18
+          - os: ubuntu-22.04
+            cxx: g++-13
+          - os: ubuntu-22.04
+            cxx: g++-14
+
+          - os: ubuntu-24.04
+            cxx: clang++-15
+          - os: ubuntu-24.04
+            cxx: g++-11
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build and run tests
+      run: CXX=${{ matrix.cxx }} make -f tests/Makefile

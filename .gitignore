@@ -1,0 +1,5 @@
+# CMake / MSYS build tree
+/build/
+
+# Editor / language server cache
+/.cache/

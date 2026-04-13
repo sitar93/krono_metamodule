@@ -1,0 +1,13 @@
+{
+	"MetaModuleBrandName": "Jolin",
+	"MetaModulePluginMaintainer": "Federico Intrisano",
+	"MetaModulePluginMaintainerUrl": "https://jolin.tech",
+	"MetaModuleDescription": "Krono — multi-modal rhythm generator (VCV Rack port for MetaModule).",
+	"MetaModuleIncludedModules": [
+		{
+			"slug": "Krono",
+			"name": "Krono",
+			"displayName": "Krono"
+		}
+	]
+}
