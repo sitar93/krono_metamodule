@@ -1,0 +1,24 @@
+Krono — MetaModule plugin **v1.0.0** (packaging release).
+
+This is the first **MetaModule** distribution of Krono. The embedded VCV manifest (`plugin.json`) remains **2.1.0** (same module sources as [krono_vcv](https://github.com/sitar93/krono_vcv) v2.1.0). The **v1.0.0** tag here refers to this `.mmplugin` release line only.
+
+## Highlights
+
+* **Krono.mmplugin** — install on a compatible [MetaModule](https://www.4mscompany.com/metamodule.html) per 4ms documentation
+* Module behavior aligned with [KRONO Eurorack firmware](https://github.com/sitar93/krono) and the [VCV Rack port](https://github.com/sitar93/krono_vcv)
+* Brand **Jolin**; module slug **Krono**
+
+## Hardware testing
+
+**Not verified on physical MetaModule hardware** (hardware unavailable). Behavior on device is unconfirmed. Please report issues at [krono_metamodule issues](https://github.com/sitar93/krono_metamodule/issues).
+
+## Assets (attach to GitHub Release v1.0.0)
+
+* `Krono.mmplugin`
+* `Krono-1.0.0.mmplugin.sha256`
+
+## SHA256
+
+`AD88DFE9649F5D7D75A3B6DC37A10F59645928863CD6AA4B6E9B4201DDF6E81B`
+
+(Also stored in `Krono-1.0.0.mmplugin.sha256`.)
