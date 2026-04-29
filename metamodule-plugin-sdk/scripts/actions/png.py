@@ -19,26 +19,27 @@ def convertSvgToPng(svgFilename, outputDir, bg="none", resize=0, exportLayer="al
         Log("Aborting")
         return
 
-    bg = "--export-background=white" if bg == "white" else ""
-
-    exportLayer = f"--export-id=\"{exportLayer}\" --export-id-only" if exportLayer != "all" else ""
-
+    cmd = [inkscapeBin]
+    if exportLayer != "all":
+        cmd += ["--export-id", exportLayer, "--export-id-only"]
+    cmd += ["--export-type=png", "--export-png-use-dithering=false"]
+    if bg == "white":
+        cmd.append("--export-background=white")
     if resize == 0:
         dpi = determine_dpi(svgFilename)
-        export_size = f"--export-dpi={dpi}"
+        cmd.append(f"--export-dpi={dpi}")
         resize_str = f"{dpi} dpi"
     else:
-        export_size = f"--export-height={resize}"
+        cmd.append(f"--export-height={resize}")
         resize_str = f"{resize} px high"
-
-
-    inkscape_cmd = f'{inkscapeBin} --export-type="png" {exportLayer} --export-png-use-dithering=false {export_size} {bg} --export-filename=\"{pngFilename}\" {svgFilename}'
+    cmd.append(f"--export-filename={os.path.normpath(pngFilename)}")
+    cmd.append(os.path.normpath(svgFilename))
 
     try:
-        subprocess.run(f'{inkscape_cmd}', shell=True, check=True)
+        subprocess.run(cmd, check=True)
         Log(f"Converted {svgFilename} to {os.path.basename(pngFilename)} at {resize_str}.")
-    except:
-        Log(f"Failed running {inkscape_cmd}. Aborting")
+    except Exception as e:
+        Log(f"Failed running inkscape ({e}). Aborting")
         return
 
 

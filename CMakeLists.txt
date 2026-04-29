@@ -36,6 +36,9 @@ target_sources(
 
 target_include_directories(Krono PRIVATE ${KRONO_ROOT}/src)
 
+# assets/ is copied flat into the .mmplugin. Ship a single 240px-tall faceplate as KronoPanel.png only;
+# do not add assets/res/Krono.png (duplicate faceplate; wastes RAM on MetaModule — see 4ms feedback).
+
 create_plugin(
 	SOURCE_LIB Krono
 	PLUGIN_NAME Krono

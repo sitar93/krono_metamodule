@@ -3,3 +3,7 @@
 
 # Editor / language server cache
 /.cache/
+
+# Private correspondence (keep local; do not commit to public GitHub)
+releases/*draft*.txt
+releases/email-*-draft.txt

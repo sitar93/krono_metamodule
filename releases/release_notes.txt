@@ -1,26 +1,33 @@
-Krono — MetaModule plugin **v1.0.1** (faceplate compatibility fix).
+Krono — MetaModule plugin **v1.0.2** (Dan / 4ms feedback: faceplate, overlay, packaging).
 
-This patch release keeps the embedded VCV manifest at **2.1.0** and updates MetaModule faceplate handling so the panel is correctly discovered at runtime.
+Aligns with MetaModule graphics requirements (240px-tall faceplate PNG), removes the dynamic panel layer on device that covered the faceplate, and ships a single faceplate image in the `.mmplugin` tarball. VCV Rack manifest remains aligned with **krono_vcv** `plugin.json` (see that repo for the exact version string).
 
 ## Highlights
 
-* Added MetaModule-specific `setPanel(Svg::load(... "res/KronoPanel.svg"))` in `KronoWidget` (without changing desktop VCV behavior).
-* Moved panel asset to the required package path (`assets/KronoPanel.png`, not `assets/res/KronoPanel.png`).
-* Brand remains **Jolin**; module slug remains **Krono**.
+* **Faceplate:** `assets/KronoPanel.png` at **240px** height (SDK `graphics.md`); regenerate with `metamodule-plugin-sdk/scripts/SvgToPng.py --height=240` on `krono_vcv/res/KronoPanel.svg`, or `scripts/export_mm_faceplate_png.py` (Pillow fallback from `KronoPanel.jpg`).
+* **Overlay:** On `METAMODULE` builds, `KronoPanelBackground` is no longer created — only `setPanel` + static PNG (see **krono_vcv** `KronoWidget`).
+* **Package:** Only one panel raster in the plugin root (`KronoPanel.png`); do not add a duplicate under `assets/res/` (saves RAM on hardware).
+* **SvgToPng / Inkscape:** `metamodule-plugin-sdk/scripts/actions/png.py` now invokes Inkscape without `shell=True`, so paths with spaces (e.g. `Program Files`) work.
 
 ## Hardware testing
 
-**Not verified on physical MetaModule hardware** (hardware unavailable). Behavior on device is unconfirmed. Please report issues at [krono_metamodule issues](https://github.com/sitar93/krono_metamodule/issues).
+**Not verified on physical MetaModule hardware** when this note was written. Please report issues at [krono_metamodule issues](https://github.com/sitar93/krono_metamodule/issues).
 
-## Assets (attach to GitHub Release v1.0.1)
+## Assets (attach to GitHub Release v1.0.2)
 
-* `Krono-v1.0.1.mmplugin`
-* `Krono-v1.0.1.mmplugin.sha256`
+* `Krono-v1.0.2.mmplugin`
+* `Krono-v1.0.2.mmplugin.sha256` (fill in after you compute the hash of the built file)
 
 ## SHA256
 
-`D1F629DB4B84F11F6604E62DA399F1609B37D59FE21C775F10BF6C4D6BC5A19C`
+`B1FDC461B2D96C1BF720E789B5707BA0EB56FC81538C0DB9E3A2D1564B3A7834`
 
-(Also stored in `Krono-v1.0.1.mmplugin.sha256`.)
+(Computed from `metamodule-plugins/Krono.mmplugin` after removing the duplicate `assets/res/Krono.png` and rebuilding. Copy/rename that file to `Krono-v1.0.2.mmplugin` for the release asset and verify the hash matches.)
 
-The CMake build outputs `metamodule-plugins/Krono.mmplugin`; rename to **`Krono-v1.0.1.mmplugin`** for releases (see [MetaModule SDK — Releasing](https://github.com/4ms/metamodule-plugin-sdk/blob/main/docs/release.md)).
+The CMake build outputs `metamodule-plugins/Krono.mmplugin`; rename to **`Krono-v1.0.2.mmplugin`** for releases (see [MetaModule SDK — Releasing](https://github.com/4ms/metamodule-plugin-sdk/blob/main/docs/release.md)).
+
+---
+
+## Earlier: v1.0.1
+
+Faceplate path fix (`assets/KronoPanel.png`), MetaModule `setPanel` for `res/KronoPanel.svg`. SHA256 v1.0.1: `D1F629DB4B84F11F6604E62DA399F1609B37D59FE21C775F10BF6C4D6BC5A19C`.
