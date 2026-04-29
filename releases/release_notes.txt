@@ -1,26 +1,26 @@
-Krono — MetaModule plugin **v1.0.0** (packaging release).
+Krono — MetaModule plugin **v1.0.1** (faceplate compatibility fix).
 
-This is the first **MetaModule** distribution of Krono. The embedded VCV manifest (`plugin.json`) remains **2.1.0** (same module sources as [krono_vcv](https://github.com/sitar93/krono_vcv) v2.1.0). The **v1.0.0** tag here refers to this `.mmplugin` release line only.
+This patch release keeps the embedded VCV manifest at **2.1.0** and updates MetaModule faceplate handling so the panel is correctly discovered at runtime.
 
 ## Highlights
 
-* **`Krono-v1.0.0.mmplugin`** — install on a compatible [MetaModule](https://www.4mscompany.com/metamodule.html) per 4ms documentation. File name follows the official pattern `[BrandSlug]-v[version].mmplugin` where `BrandSlug` matches the top-level **`slug`** in `plugin.json` (**Krono**).
-* Module behavior aligned with [KRONO Eurorack firmware](https://github.com/sitar93/krono) and the [VCV Rack port](https://github.com/sitar93/krono_vcv)
-* Brand **Jolin**; module slug **Krono**
+* Added MetaModule-specific `setPanel(Svg::load(... "res/KronoPanel.svg"))` in `KronoWidget` (without changing desktop VCV behavior).
+* Moved panel asset to the required package path (`assets/KronoPanel.png`, not `assets/res/KronoPanel.png`).
+* Brand remains **Jolin**; module slug remains **Krono**.
 
 ## Hardware testing
 
 **Not verified on physical MetaModule hardware** (hardware unavailable). Behavior on device is unconfirmed. Please report issues at [krono_metamodule issues](https://github.com/sitar93/krono_metamodule/issues).
 
-## Assets (attach to GitHub Release v1.0.0)
+## Assets (attach to GitHub Release v1.0.1)
 
-* `Krono-v1.0.0.mmplugin`
-* `Krono-v1.0.0.mmplugin.sha256`
+* `Krono-v1.0.1.mmplugin`
+* `Krono-v1.0.1.mmplugin.sha256`
 
 ## SHA256
 
-`AD88DFE9649F5D7D75A3B6DC37A10F59645928863CD6AA4B6E9B4201DDF6E81B`
+`D1F629DB4B84F11F6604E62DA399F1609B37D59FE21C775F10BF6C4D6BC5A19C`
 
-(Also stored in `Krono-v1.0.0.mmplugin.sha256`.)
+(Also stored in `Krono-v1.0.1.mmplugin.sha256`.)
 
-The CMake build outputs `metamodule-plugins/Krono.mmplugin`; rename to **`Krono-v1.0.0.mmplugin`** for releases (see [MetaModule SDK — Releasing](https://github.com/4ms/metamodule-plugin-sdk/blob/main/docs/release.md)).
+The CMake build outputs `metamodule-plugins/Krono.mmplugin`; rename to **`Krono-v1.0.1.mmplugin`** for releases (see [MetaModule SDK — Releasing](https://github.com/4ms/metamodule-plugin-sdk/blob/main/docs/release.md)).
