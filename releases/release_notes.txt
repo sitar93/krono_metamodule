@@ -1,4 +1,4 @@
-Krono — MetaModule plugin **v1.0.2** (Dan / 4ms feedback: faceplate, overlay, packaging).
+Krono — MetaModule plugin **v1.0.3** (brand alignment and packaging updates).
 
 Aligns with MetaModule graphics requirements (240px-tall faceplate PNG), removes the dynamic panel layer on device that covered the faceplate, and ships a single faceplate image in the `.mmplugin` tarball. VCV Rack manifest remains aligned with **krono_vcv** `plugin.json` (see that repo for the exact version string).
 
@@ -13,18 +13,18 @@ Aligns with MetaModule graphics requirements (240px-tall faceplate PNG), removes
 
 **Not verified on physical MetaModule hardware** when this note was written. Please report issues at [krono_metamodule issues](https://github.com/sitar93/krono_metamodule/issues).
 
-## Assets (attach to GitHub Release v1.0.2)
+## Assets (attach to GitHub Release v1.0.3)
 
-* `Krono-v1.0.2.mmplugin`
-* `Krono-v1.0.2.mmplugin.sha256` (fill in after you compute the hash of the built file)
+* `Jolin-v1.0.3.mmplugin`
+* `Jolin-v1.0.3.mmplugin.sha256` (fill in after you compute the hash of the built file)
 
 ## SHA256
 
-`B1FDC461B2D96C1BF720E789B5707BA0EB56FC81538C0DB9E3A2D1564B3A7834`
+`EF219ABF9F2D74172B5171D7D1084780910776070B08D3275A02E741FFD7F751`
 
-(Computed from `metamodule-plugins/Krono.mmplugin` after removing the duplicate `assets/res/Krono.png` and rebuilding. Copy/rename that file to `Krono-v1.0.2.mmplugin` for the release asset and verify the hash matches.)
+(Computed from `metamodule-plugins/Jolin.mmplugin` after rebuilding. Copy/rename that file to `Jolin-v1.0.3.mmplugin` for the release asset and verify the hash matches.)
 
-The CMake build outputs `metamodule-plugins/Krono.mmplugin`; rename to **`Krono-v1.0.2.mmplugin`** for releases (see [MetaModule SDK — Releasing](https://github.com/4ms/metamodule-plugin-sdk/blob/main/docs/release.md)).
+The CMake build outputs `metamodule-plugins/Jolin.mmplugin`; rename to **`Jolin-v1.0.3.mmplugin`** for releases (see [MetaModule SDK — Releasing](https://github.com/4ms/metamodule-plugin-sdk/blob/main/docs/release.md)).
 
 ---
 

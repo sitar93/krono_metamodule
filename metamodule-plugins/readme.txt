@@ -3,7 +3,7 @@ Krono — MetaModule plugin (.mmplugin)
 
 Build output
 ------------
-  Krono.mmplugin
+  Jolin.mmplugin
 
 What it is
 ----------

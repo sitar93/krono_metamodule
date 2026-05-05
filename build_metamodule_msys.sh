@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build Krono.mmplugin (MetaModule). Richiede MSYS2 MINGW64, CMake, arm-none-eabi-gcc 12.2/12.3 sul PATH
+# Build Jolin.mmplugin (MetaModule). Richiede MSYS2 MINGW64, CMake, arm-none-eabi-gcc 12.2/12.3 sul PATH
 # o TOOLCHAIN_BASE_DIR punta alla cartella bin della toolchain ARM.
 
 set -euo pipefail
@@ -45,4 +45,4 @@ else
 fi
 cmake --build build
 
-echo "[krono-mm] Output: $ROOT/metamodule-plugins/Krono.mmplugin (se il build è andato a buon fine)"
+echo "[krono-mm] Output: $ROOT/metamodule-plugins/Jolin.mmplugin (se il build è andato a buon fine)"

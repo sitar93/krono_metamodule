@@ -1,5 +1,5 @@
 # Remove CMake build tree and IDE cache under krono_metamodule.
-# Does not delete metamodule-plugins/ (Krono.mmplugin, readme.txt).
+# Does not delete metamodule-plugins/ (Jolin.mmplugin, readme.txt).
 
 $ErrorActionPreference = "Stop"
 $root = $PSScriptRoot

@@ -14,7 +14,7 @@ include(${METAMODULE_SDK_DIR}/plugin.cmake)
 
 project(
 	Krono
-	VERSION 2.1.0
+	VERSION 2.1.1
 	DESCRIPTION "Krono multi-modal rhythm generator for MetaModule"
 	LANGUAGES C CXX ASM)
 
@@ -41,7 +41,7 @@ target_include_directories(Krono PRIVATE ${KRONO_ROOT}/src)
 
 create_plugin(
 	SOURCE_LIB Krono
-	PLUGIN_NAME Krono
+	PLUGIN_NAME Jolin
 	PLUGIN_JSON ${KRONO_ROOT}/plugin.json
 	SOURCE_ASSETS ${CMAKE_CURRENT_LIST_DIR}/assets
 	DESTINATION ${CMAKE_CURRENT_LIST_DIR}/metamodule-plugins)
